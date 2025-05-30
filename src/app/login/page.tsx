@@ -1,6 +1,10 @@
-'use client';
+import type { Metadata } from 'next'
 import { useState } from "react";
 import { motion } from "framer-motion";
+
+export const metadata: Metadata = {
+  title: 'Iniciar Sesión',
+}
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");

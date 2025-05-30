@@ -7,6 +7,11 @@ import TrainingCard from "@/components/dashboard/TrainingCard";
 import NuevoRegistroModal from "@/components/modals/NuevoRegistroModal";
 import ConfirmDialog from "@/components/modals/ConfirmDialog";
 import type { TrainingSession } from "@/types/training";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+}
 
 export default function DashboardPage() {
   const [sessions, setSessions] = useState<TrainingSession[]>([]);
