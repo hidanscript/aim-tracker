@@ -1,0 +1,168 @@
+2025-05-30T12:23:17.000688Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2025-05-30T12:23:17.000814Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "c:\\Users\\hidan\\Projects\\aim-tracker", pattern: "**/*", negated: false }
+2025-05-30T12:23:17.001051Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2025-05-30T12:23:17.001070Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "C:\\Users\\hidan\\Projects\\aim-tracker" }
+2025-05-30T12:23:17.003594Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:17.003666Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:17.006114Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\next.config.ts"
+2025-05-30T12:23:17.006522Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\package.json"
+2025-05-30T12:23:17.006655Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\postcss.config.mjs"
+2025-05-30T12:23:17.006859Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:23:17.007113Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\file.svg"
+2025-05-30T12:23:17.007244Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\globe.svg"
+2025-05-30T12:23:17.007367Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\next.svg"
+2025-05-30T12:23:17.007492Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\vercel.svg"
+2025-05-30T12:23:17.007629Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\window.svg"
+2025-05-30T12:23:17.007799Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\README.md"
+2025-05-30T12:23:17.007996Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:23:17.008307Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:23:17.008543Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\globals.css"
+2025-05-30T12:23:17.008672Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\layout.tsx"
+2025-05-30T12:23:17.008801Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\page.tsx"
+2025-05-30T12:23:17.008988Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\tsconfig.json"
+2025-05-30T12:23:17.009213Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:23:17.009547Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2025-05-30T12:23:17.009611Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:17.009620Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:17.012258Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:23:17.012960Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:23:17.013269Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:23:17.013858Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:23:17.017364Z  INFO get_globs: tailwindcss_oxide::scanner: exit
+2025-05-30T12:23:57.213159Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2025-05-30T12:23:57.213220Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "c:\\Users\\hidan\\Projects\\aim-tracker", pattern: "**/*", negated: false }
+2025-05-30T12:23:57.213377Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2025-05-30T12:23:57.213387Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "C:\\Users\\hidan\\Projects\\aim-tracker" }
+2025-05-30T12:23:57.213480Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:57.213493Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:57.215584Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\next.config.ts"
+2025-05-30T12:23:57.216404Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\package.json"
+2025-05-30T12:23:57.216630Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\postcss.config.mjs"
+2025-05-30T12:23:57.216897Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:23:57.217232Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\file.svg"
+2025-05-30T12:23:57.217365Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\globe.svg"
+2025-05-30T12:23:57.217486Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\next.svg"
+2025-05-30T12:23:57.217610Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\vercel.svg"
+2025-05-30T12:23:57.217734Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\window.svg"
+2025-05-30T12:23:57.218062Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\README.md"
+2025-05-30T12:23:57.218310Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:23:57.218670Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:23:57.218940Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\globals.css"
+2025-05-30T12:23:57.219073Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\layout.tsx"
+2025-05-30T12:23:57.219203Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\page.tsx"
+2025-05-30T12:23:57.219497Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models"
+2025-05-30T12:23:57.219778Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models\\TrainingSession.ts"
+2025-05-30T12:23:57.220003Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\tsconfig.json"
+2025-05-30T12:23:57.220182Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:23:57.223249Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2025-05-30T12:23:57.223320Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:57.223330Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:23:57.226864Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:23:57.227769Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:23:57.228124Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:23:57.228827Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models"
+2025-05-30T12:23:57.230332Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:23:57.234576Z  INFO get_globs: tailwindcss_oxide::scanner: exit
+2025-05-30T12:29:13.118497Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2025-05-30T12:29:13.118518Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "c:\\Users\\hidan\\Projects\\aim-tracker", pattern: "**/*", negated: false }
+2025-05-30T12:29:13.118641Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2025-05-30T12:29:13.118653Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "C:\\Users\\hidan\\Projects\\aim-tracker" }
+2025-05-30T12:29:13.118752Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2025-05-30T12:29:13.118764Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:29:13.121002Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\next.config.ts"
+2025-05-30T12:29:13.121405Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\package.json"
+2025-05-30T12:29:13.121527Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\postcss.config.mjs"
+2025-05-30T12:29:13.121738Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:29:13.122010Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\file.svg"
+2025-05-30T12:29:13.122131Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\globe.svg"
+2025-05-30T12:29:13.122252Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\next.svg"
+2025-05-30T12:29:13.122373Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\vercel.svg"
+2025-05-30T12:29:13.122492Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\window.svg"
+2025-05-30T12:29:13.122661Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\README.md"
+2025-05-30T12:29:13.122949Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:29:13.123327Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:29:13.123660Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api"
+2025-05-30T12:29:13.123987Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api\\training-session"
+2025-05-30T12:29:13.124228Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api\\training-session\\route.ts"
+2025-05-30T12:29:13.124495Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\dashboard"
+2025-05-30T12:29:13.124765Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\dashboard\\page.tsx"
+2025-05-30T12:29:13.124969Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\globals.css"
+2025-05-30T12:29:13.125086Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\layout.tsx"
+2025-05-30T12:29:13.125207Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\page.tsx"
+2025-05-30T12:29:13.125440Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components"
+2025-05-30T12:29:13.125744Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\dashboard"
+2025-05-30T12:29:13.125973Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\dashboard\\Sidebar.tsx"
+2025-05-30T12:29:13.126227Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\lib"
+2025-05-30T12:29:13.126496Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\lib\\mongoose.ts"
+2025-05-30T12:29:13.126719Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models"
+2025-05-30T12:29:13.126979Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models\\TrainingSession.ts"
+2025-05-30T12:29:13.127169Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\tsconfig.json"
+2025-05-30T12:29:13.127346Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:29:13.127426Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2025-05-30T12:29:13.127474Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2025-05-30T12:29:13.127483Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:29:13.130629Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:29:13.131364Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:29:13.131687Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:29:13.132098Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api"
+2025-05-30T12:29:13.132477Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api\\training-session"
+2025-05-30T12:29:13.132956Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\dashboard"
+2025-05-30T12:29:13.133634Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components"
+2025-05-30T12:29:13.133973Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\dashboard"
+2025-05-30T12:29:13.134408Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\lib"
+2025-05-30T12:29:13.134836Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models"
+2025-05-30T12:29:13.135347Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:29:13.140720Z  INFO get_globs: tailwindcss_oxide::scanner: exit
+2025-05-30T12:43:31.793125Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2025-05-30T12:43:31.793147Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "c:\\Users\\hidan\\Projects\\aim-tracker", pattern: "**/*", negated: false }
+2025-05-30T12:43:31.793267Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2025-05-30T12:43:31.793276Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "C:\\Users\\hidan\\Projects\\aim-tracker" }
+2025-05-30T12:43:31.793373Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2025-05-30T12:43:31.793387Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:43:31.795613Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\next.config.ts"
+2025-05-30T12:43:31.796175Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\package.json"
+2025-05-30T12:43:31.796310Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\postcss.config.mjs"
+2025-05-30T12:43:31.796521Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:43:31.796800Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\file.svg"
+2025-05-30T12:43:31.796927Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\globe.svg"
+2025-05-30T12:43:31.797045Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\next.svg"
+2025-05-30T12:43:31.797160Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\vercel.svg"
+2025-05-30T12:43:31.797274Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public\\window.svg"
+2025-05-30T12:43:31.797437Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\README.md"
+2025-05-30T12:43:31.797637Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:43:31.797971Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:43:31.798292Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api"
+2025-05-30T12:43:31.798618Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api\\training-session"
+2025-05-30T12:43:31.798860Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api\\training-session\\route.ts"
+2025-05-30T12:43:31.799120Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\dashboard"
+2025-05-30T12:43:31.799359Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\dashboard\\page.tsx"
+2025-05-30T12:43:31.799518Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\globals.css"
+2025-05-30T12:43:31.799636Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\layout.tsx"
+2025-05-30T12:43:31.799766Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\page.tsx"
+2025-05-30T12:43:31.800008Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components"
+2025-05-30T12:43:31.800326Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\dashboard"
+2025-05-30T12:43:31.800580Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\dashboard\\Sidebar.tsx"
+2025-05-30T12:43:31.800826Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\modals"
+2025-05-30T12:43:31.801073Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\modals\\NuevoRegistroModal.tsx"
+2025-05-30T12:43:31.801401Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\lib"
+2025-05-30T12:43:31.801644Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\lib\\mongoose.ts"
+2025-05-30T12:43:31.801874Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models"
+2025-05-30T12:43:31.802122Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models\\TrainingSession.ts"
+2025-05-30T12:43:31.802333Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\tsconfig.json"
+2025-05-30T12:43:31.802539Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:43:31.802660Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2025-05-30T12:43:31.802709Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2025-05-30T12:43:31.802717Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: enter
+2025-05-30T12:43:31.805578Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\public"
+2025-05-30T12:43:31.806340Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src"
+2025-05-30T12:43:31.806674Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app"
+2025-05-30T12:43:31.807023Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api"
+2025-05-30T12:43:31.807433Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\api\\training-session"
+2025-05-30T12:43:31.808052Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\app\\dashboard"
+2025-05-30T12:43:31.808803Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components"
+2025-05-30T12:43:31.809191Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\dashboard"
+2025-05-30T12:43:31.809758Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\components\\modals"
+2025-05-30T12:43:31.810297Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\lib"
+2025-05-30T12:43:31.811062Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\hidan\\Projects\\aim-tracker\\src\\models"
+2025-05-30T12:43:31.811951Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: exit
+2025-05-30T12:43:31.819671Z  INFO get_globs: tailwindcss_oxide::scanner: exit
