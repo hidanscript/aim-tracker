@@ -1,14 +1,9 @@
 'use client';
-import type { Metadata } from 'next'
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaBullseye, FaChartLine, FaGamepad, FaArrowRight } from "react-icons/fa";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
-export const metadata: Metadata = {
-  title: 'Inicio',
-}
 
 export default function LandingPage() {
   return (

@@ -1,12 +1,7 @@
 'use client';
-import type { Metadata } from 'next'
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaGamepad, FaArrowLeft } from 'react-icons/fa';
-
-export const metadata: Metadata = {
-  title: 'Página no encontrada',
-}
 
 export default function NotFound() {
   return (

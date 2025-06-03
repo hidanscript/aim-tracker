@@ -1,17 +1,36 @@
 'use client';
 import { useEffect, useState } from "react";
-import { FiTarget, FiClock, FiTrendingUp, FiActivity, FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import Sidebar from "@/components/dashboard/Sidebar";
+import { FiTarget, FiClock, FiTrendingUp, FiActivity, FiChevronDown, FiChevronUp, FiPlus, FiTrash2 } from 'react-icons/fi';
+import Navbar from "@/components/layout/Navbar";
 import StatsCard from "@/components/dashboard/StatsCard";
 import TrainingCard from "@/components/dashboard/TrainingCard";
 import NuevoRegistroModal from "@/components/modals/NuevoRegistroModal";
 import ConfirmDialog from "@/components/modals/ConfirmDialog";
 import type { TrainingSession } from "@/types/training";
-import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'Dashboard',
-}
+const formatDuration = (seconds: number): string => {
+  const days = Math.floor(seconds / (24 * 3600));
+  const hours = Math.floor((seconds % (24 * 3600)) / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  const parts: string[] = [];
+
+  if (days > 0) {
+    parts.push(`${days}d`);
+  }
+  if (hours > 0) {
+    parts.push(`${hours}h`);
+  }
+  if (minutes > 0) {
+    parts.push(`${minutes}m`);
+  }
+  if (remainingSeconds > 0 && days === 0 && hours === 0) {
+    parts.push(`${remainingSeconds}s`);
+  }
+
+  return parts.join(' ') || '0s';
+};
 
 export default function DashboardPage() {
   const [sessions, setSessions] = useState<TrainingSession[]>([]);
@@ -55,14 +74,36 @@ export default function DashboardPage() {
 
     const totalSessions = sessions.length;
     const weeklySessions = lastWeek.length;
-    const totalTime = sessions.reduce((acc, s) => acc + (s.duration || 0), 0);
+    
+    // Calcular tiempo total considerando solo Bots x100 y contando Bots Hard como 30 segundos
+    const totalTime = sessions.reduce((acc, s) => {
+      if (s.exercise === "Bots Hard") {
+        return acc + 30; // Cada sesión de Bots Hard cuenta como 30 segundos
+      } else if (s.exercise === "Bots x100") {
+        return acc + (s.duration || 0); // Sumar la duración real de Bots x100
+      }
+      return acc; // Ignorar otros tipos de ejercicios
+    }, 0);
+
     const bestHits = Math.max(...sessions.map(s => s.hits || 0));
+
+    // Calcular mejor tiempo de Bots x100
+    const bestTime = sessions
+      .filter(s => s.exercise === "Bots x100" && s.duration)
+      .reduce((min, s) => {
+        if (!min || (s.duration && s.duration < (min.duration || Infinity))) {
+          return s;
+        }
+        return min;
+      }, null as TrainingSession | null)
+      ?.duration || 0;
 
     return {
       totalSessions,
       weeklySessions,
       totalTime,
       bestHits,
+      bestTime,
       weeklyTrend: weeklySessions > 0 ? ((weeklySessions / totalSessions) * 100) : 0
     };
   };
@@ -79,25 +120,26 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white">
-      <Sidebar />
-
-      <main className="flex-1 p-8 overflow-y-auto">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white">
+      <Navbar />
+      
+      <main className="p-6 lg:px-16 xl:px-24 lg:py-8">
+        <div className="max-w-6xl mx-auto space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Dashboard
-              </h1>
-              <p className="text-gray-400 mt-1">Seguí tu progreso de entrenamiento</p>
+              <h1 className="text-2xl font-medium text-white/90">Dashboard</h1>
+              <p className="text-sm text-white/50 mt-1">Seguimiento de entrenamiento</p>
             </div>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="relative group"
+              className="relative group inline-flex items-center gap-2 transition-transform active:scale-95"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
-              <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg px-4 py-2 text-sm font-medium hover:bg-white/15 transition duration-200">
-                + Nueva sesión
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+              <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg px-5 py-2.5 text-sm font-medium hover:bg-white/15 transition duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl">
+                <FiPlus className="w-4 h-4 text-blue-400" />
+                <span className="text-white font-semibold">
+                  Nueva sesión
+                </span>
               </div>
             </button>
           </div>
@@ -130,7 +172,7 @@ export default function DashboardPage() {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
                 <StatsCard
                   title="Total de sesiones"
                   value={stats.totalSessions}
@@ -144,13 +186,18 @@ export default function DashboardPage() {
                 />
                 <StatsCard
                   title="Tiempo total"
-                  value={`${Math.round(stats.totalTime / 60)} min`}
+                  value={formatDuration(stats.totalTime)}
                   icon={<FiTrendingUp className="w-4 h-4" />}
                 />
                 <StatsCard
                   title="Mejor marca"
                   value={`${stats.bestHits} hits`}
                   icon={<FiTarget className="w-4 h-4" />}
+                />
+                <StatsCard
+                  title="Mejor tiempo"
+                  value={stats.bestTime ? `${stats.bestTime} seg` : 'N/A'}
+                  icon={<FiClock className="w-4 h-4" />}
                 />
               </div>
 
@@ -179,7 +226,7 @@ export default function DashboardPage() {
                               : entries.reduce((min, s) => (s.duration ?? Infinity) < (min.duration ?? Infinity) ? s : min);
 
                             const categoryKey = `${date}-${exercise}`;
-                            const isExpanded = expandedCategories[categoryKey] ?? true;
+                            const isExpanded = expandedCategories[categoryKey] ?? false;
 
                             return (
                               <div key={exercise}>
@@ -203,6 +250,7 @@ export default function DashboardPage() {
                                             <th className="pb-3 font-medium w-12">#</th>
                                             <th className="pb-3 font-medium">Duración / Hits</th>
                                             <th className="pb-3 font-medium">Dificultad</th>
+                                            <th className="pb-3 font-medium">Notas</th>
                                             <th className="pb-3 font-medium text-right">Acciones</th>
                                           </tr>
                                         </thead>
@@ -243,6 +291,13 @@ export default function DashboardPage() {
                                                       />
                                                     ))}
                                                   </div>
+                                                )}
+                                              </td>
+                                              <td className="py-3">
+                                                {session.notes ? (
+                                                  <span className="text-gray-300 text-sm">{session.notes}</span>
+                                                ) : (
+                                                  <span className="text-gray-500 text-sm italic">Sin notas</span>
                                                 )}
                                               </td>
                                               <td className="py-3 text-right">
