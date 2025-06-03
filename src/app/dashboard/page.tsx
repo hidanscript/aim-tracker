@@ -98,13 +98,20 @@ export default function DashboardPage() {
       }, null as TrainingSession | null)
       ?.duration || 0;
 
+    // Obtener el DPI e IGS más reciente
+    const latestSession = sessions.sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    )[0];
+
     return {
       totalSessions,
       weeklySessions,
       totalTime,
       bestHits,
       bestTime,
-      weeklyTrend: weeklySessions > 0 ? ((weeklySessions / totalSessions) * 100) : 0
+      weeklyTrend: weeklySessions > 0 ? ((weeklySessions / totalSessions) * 100) : 0,
+      currentDpi: latestSession?.dpi || 800,
+      currentIgs: latestSession?.igs || 0.31
     };
   };
 
@@ -120,87 +127,80 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100">
       <Navbar />
       
-      <main className="p-6 lg:px-16 xl:px-24 lg:py-8">
-        <div className="max-w-6xl mx-auto space-y-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <h1 className="text-2xl font-medium text-white/90">Dashboard</h1>
-              <p className="text-sm text-white/50 mt-1">Seguimiento de entrenamiento</p>
+      <main className="flex-1 py-8">
+        <div className="max-w-6xl mx-auto px-8 lg:px-20 xl:px-32">
+          <div className="flex items-center justify-between mb-8">
+            <div className="space-y-1">
+              <h1 className="text-2xl font-bold text-zinc-100">Dashboard</h1>
+              <div className="flex items-center gap-4 text-sm text-zinc-400">
+                <div className="flex items-center gap-2">
+                  <FiTarget className="w-4 h-4" />
+                  <span>DPI: {stats.currentDpi}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FiTarget className="w-4 h-4" />
+                  <span>IGS: {stats.currentIgs.toFixed(2)}</span>
+                </div>
+              </div>
             </div>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="relative group inline-flex items-center gap-2 transition-transform active:scale-95"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 rounded-lg text-sm font-medium transition-colors"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-              <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg px-5 py-2.5 text-sm font-medium hover:bg-white/15 transition duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl">
-                <FiPlus className="w-4 h-4 text-blue-400" />
-                <span className="text-white font-semibold">
-                  Nueva sesión
-                </span>
-              </div>
+              <FiPlus className="w-4 h-4" />
+              Nueva sesión
             </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <StatsCard
+              title="Total de sesiones"
+              value={stats.totalSessions}
+              icon={<FiActivity className="w-4 h-4" />}
+              trend={{ value: stats.weeklyTrend, isPositive: true }}
+            />
+            <StatsCard
+              title="Tiempo total"
+              value={formatDuration(stats.totalTime)}
+              icon={<FiTrendingUp className="w-4 h-4" />}
+            />
+            <StatsCard
+              title="Mejor marca"
+              value={`${stats.bestHits} hits`}
+              icon={<FiTarget className="w-4 h-4" />}
+            />
+            <StatsCard
+              title="Mejor tiempo"
+              value={stats.bestTime ? `${stats.bestTime} seg` : 'N/A'}
+              icon={<FiClock className="w-4 h-4" />}
+            />
           </div>
 
           {loading ? (
             <div className="flex items-center justify-center h-64">
-              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-400"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-zinc-400"></div>
             </div>
           ) : sessions.length === 0 ? (
             <div className="flex flex-col items-center justify-center mt-20 text-center">
-              <div className="relative group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
-                <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-8">
-                  <div className="text-5xl mb-4">🎯</div>
-                  <h2 className="text-xl font-semibold text-white mb-2">Sin registros todavía</h2>
-                  <p className="text-sm text-gray-300 mb-4">
-                    Comenzá tu entrenamiento y registra tu progreso día a día.
-                  </p>
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="relative group"
-                  >
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
-                    <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg px-4 py-2 text-sm font-medium hover:bg-white/15 transition duration-200">
-                      + Añadir tu primera sesión
-                    </div>
-                  </button>
-                </div>
+              <div className="bg-zinc-900 rounded-xl p-8 border border-zinc-800">
+                <div className="text-5xl mb-4">🎯</div>
+                <h2 className="text-xl font-semibold text-zinc-100 mb-2">Sin registros todavía</h2>
+                <p className="text-sm text-zinc-400 mb-4">
+                  Comenzá tu entrenamiento y registra tu progreso día a día.
+                </p>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-zinc-800 hover:bg-zinc-700 rounded-lg px-4 py-2 text-sm font-medium transition"
+                >
+                  + Añadir tu primera sesión
+                </button>
               </div>
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-                <StatsCard
-                  title="Total de sesiones"
-                  value={stats.totalSessions}
-                  icon={<FiActivity className="w-4 h-4" />}
-                  trend={{ value: stats.weeklyTrend, isPositive: true }}
-                />
-                <StatsCard
-                  title="Sesiones esta semana"
-                  value={stats.weeklySessions}
-                  icon={<FiClock className="w-4 h-4" />}
-                />
-                <StatsCard
-                  title="Tiempo total"
-                  value={formatDuration(stats.totalTime)}
-                  icon={<FiTrendingUp className="w-4 h-4" />}
-                />
-                <StatsCard
-                  title="Mejor marca"
-                  value={`${stats.bestHits} hits`}
-                  icon={<FiTarget className="w-4 h-4" />}
-                />
-                <StatsCard
-                  title="Mejor tiempo"
-                  value={stats.bestTime ? `${stats.bestTime} seg` : 'N/A'}
-                  icon={<FiClock className="w-4 h-4" />}
-                />
-              </div>
-
               <div className="space-y-6">
                 {Object.entries(groupedByDate).map(([date, dateSessions]) => {
                   const exercises: { [exercise: string]: TrainingSession[] } = {};
@@ -210,115 +210,112 @@ export default function DashboardPage() {
                   });
 
                   return (
-                    <div key={date} className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-200"></div>
-                      <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden">
-                        <div className="p-6 border-b border-white/10">
-                          <h2 className="text-xl font-semibold text-blue-300">{date}</h2>
-                        </div>
-                        <div className="divide-y divide-white/10">
-                          {Object.entries(exercises).map(([exercise, entries]) => {
-                            const sorted = entries.sort(
-                              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-                            );
-                            const best = exercise === "Bots Hard"
-                              ? entries.reduce((max, s) => (s.hits ?? 0) > (max.hits ?? 0) ? s : max)
-                              : entries.reduce((min, s) => (s.duration ?? Infinity) < (min.duration ?? Infinity) ? s : min);
+                    <div key={date} className="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800">
+                      <div className="p-6 border-b border-zinc-800">
+                        <h2 className="text-xl font-semibold text-zinc-200">{date}</h2>
+                      </div>
+                      <div className="divide-y divide-zinc-800">
+                        {Object.entries(exercises).map(([exercise, entries]) => {
+                          const sorted = entries.sort(
+                            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+                          );
+                          const best = exercise === "Bots Hard"
+                            ? entries.reduce((max, s) => (s.hits ?? 0) > (max.hits ?? 0) ? s : max)
+                            : entries.reduce((min, s) => (s.duration ?? Infinity) < (min.duration ?? Infinity) ? s : min);
 
-                            const categoryKey = `${date}-${exercise}`;
-                            const isExpanded = expandedCategories[categoryKey] ?? false;
+                          const categoryKey = `${date}-${exercise}`;
+                          const isExpanded = expandedCategories[categoryKey] ?? false;
 
-                            return (
-                              <div key={exercise}>
-                                <button
-                                  onClick={() => toggleCategory(date, exercise)}
-                                  className="w-full p-6 flex items-center justify-between hover:bg-white/5 transition-colors"
-                                >
-                                  <div className="flex items-center gap-3">
-                                    <h3 className="text-sm font-medium text-gray-400">{exercise}</h3>
-                                    <span className="text-xs text-gray-500">({entries.length} sesiones)</span>
-                                  </div>
-                                  {isExpanded ? <FiChevronUp className="text-gray-400" /> : <FiChevronDown className="text-gray-400" />}
-                                </button>
-                                
-                                {isExpanded && (
-                                  <div className="px-6 pb-6">
-                                    <div className="overflow-x-auto">
-                                      <table className="w-full text-sm">
-                                        <thead>
-                                          <tr className="text-left text-gray-400 border-b border-white/10">
-                                            <th className="pb-3 font-medium w-12">#</th>
-                                            <th className="pb-3 font-medium">Duración / Hits</th>
-                                            <th className="pb-3 font-medium">Dificultad</th>
-                                            <th className="pb-3 font-medium">Notas</th>
-                                            <th className="pb-3 font-medium text-right">Acciones</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-white/10">
-                                          {sorted.map((session, index) => (
-                                            <tr
-                                              key={session._id}
-                                              className={`group/row hover:bg-white/5 transition-colors ${
-                                                session._id === best._id ? 'bg-blue-500/5' : ''
-                                              }`}
-                                            >
-                                              <td className="py-3 text-gray-400">
-                                                {index + 1}.
-                                              </td>
-                                              <td className="py-3">
-                                                <div className="flex items-center gap-2">
-                                                  <span className="text-white">
-                                                    {session.exercise === "Bots Hard"
-                                                      ? `${session.hits} bots acertados`
-                                                      : `${session.duration} seg`}
+                          return (
+                            <div key={exercise}>
+                              <button
+                                onClick={() => toggleCategory(date, exercise)}
+                                className="w-full p-6 flex items-center justify-between hover:bg-zinc-800/50 transition-colors"
+                              >
+                                <div className="flex items-center gap-3">
+                                  <h3 className="text-sm font-medium text-zinc-300">{exercise}</h3>
+                                  <span className="text-xs text-zinc-500">({entries.length} sesiones)</span>
+                                </div>
+                                {isExpanded ? <FiChevronUp className="text-zinc-500" /> : <FiChevronDown className="text-zinc-500" />}
+                              </button>
+                              
+                              {isExpanded && (
+                                <div className="px-6 pb-6">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead>
+                                        <tr className="text-left text-zinc-400 border-b border-zinc-800">
+                                          <th className="pb-3 font-medium w-12">#</th>
+                                          <th className="pb-3 font-medium">Duración / Hits</th>
+                                          <th className="pb-3 font-medium">Dificultad</th>
+                                          <th className="pb-3 font-medium">Notas</th>
+                                          <th className="pb-3 font-medium text-right">Acciones</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-zinc-800">
+                                        {sorted.map((session, index) => (
+                                          <tr
+                                            key={session._id}
+                                            className={`group/row hover:bg-zinc-800/30 transition-colors ${
+                                              session._id === best._id ? 'bg-zinc-800/50' : ''
+                                            }`}
+                                          >
+                                            <td className="py-3 text-zinc-400">
+                                              {index + 1}.
+                                            </td>
+                                            <td className="py-3">
+                                              <div className="flex items-center gap-2">
+                                                <span className="text-zinc-100">
+                                                  {session.exercise === "Bots Hard"
+                                                    ? `${session.hits} bots acertados`
+                                                    : `${session.duration} seg`}
+                                                </span>
+                                                {session._id === best._id && (
+                                                  <span className="text-xs bg-zinc-700 text-zinc-300 px-2 py-0.5 rounded-full border border-zinc-600">
+                                                    🏆 Mejor marca
                                                   </span>
-                                                  {session._id === best._id && (
-                                                    <span className="text-xs bg-yellow-400/10 text-yellow-400 px-2 py-0.5 rounded-full border border-yellow-400/20">
-                                                      🏆 Mejor marca
-                                                    </span>
-                                                  )}
+                                                )}
+                                              </div>
+                                            </td>
+                                            <td className="py-3">
+                                              {session.difficulty && (
+                                                <div className="flex gap-1">
+                                                  {[...Array(5)].map((_, i) => (
+                                                    <div
+                                                      key={i}
+                                                      className={`w-1.5 h-1.5 rounded-full ${
+                                                        i < (session.difficulty ?? 0) ? 'bg-zinc-400' : 'bg-zinc-700'
+                                                      }`}
+                                                    />
+                                                  ))}
                                                 </div>
-                                              </td>
-                                              <td className="py-3">
-                                                {session.difficulty && (
-                                                  <div className="flex gap-1">
-                                                    {[...Array(5)].map((_, i) => (
-                                                      <div
-                                                        key={i}
-                                                        className={`w-1.5 h-1.5 rounded-full ${
-                                                          i < (session.difficulty ?? 0) ? 'bg-blue-400' : 'bg-white/10'
-                                                        }`}
-                                                      />
-                                                    ))}
-                                                  </div>
-                                                )}
-                                              </td>
-                                              <td className="py-3">
-                                                {session.notes ? (
-                                                  <span className="text-gray-300 text-sm">{session.notes}</span>
-                                                ) : (
-                                                  <span className="text-gray-500 text-sm italic">Sin notas</span>
-                                                )}
-                                              </td>
-                                              <td className="py-3 text-right">
-                                                <button
-                                                  onClick={() => setConfirmingId(session._id)}
-                                                  className="text-red-400/70 hover:text-red-400 transition-colors opacity-0 group-hover/row:opacity-100"
-                                                >
-                                                  Eliminar
-                                                </button>
-                                              </td>
-                                            </tr>
-                                          ))}
-                                        </tbody>
-                                      </table>
-                                    </div>
+                                              )}
+                                            </td>
+                                            <td className="py-3">
+                                              {session.notes ? (
+                                                <span className="text-zinc-300 text-sm">{session.notes}</span>
+                                              ) : (
+                                                <span className="text-zinc-500 text-sm italic">Sin notas</span>
+                                              )}
+                                            </td>
+                                            <td className="py-3 text-right">
+                                              <button
+                                                onClick={() => setConfirmingId(session._id)}
+                                                className="text-zinc-400 hover:text-zinc-300 transition-colors opacity-0 group-hover/row:opacity-100"
+                                              >
+                                                Eliminar
+                                              </button>
+                                            </td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
                                   </div>
-                                )}
-                              </div>
-                            );
-                          })}
-                        </div>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   );

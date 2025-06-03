@@ -6,5 +6,7 @@ export interface TrainingSession {
   hits?: number;
   difficulty?: number;
   notes?: string;
+  dpi: number;
+  igs: number;
   improved?: boolean;
 } 

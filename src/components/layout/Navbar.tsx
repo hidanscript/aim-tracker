@@ -2,56 +2,53 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FiTarget, FiHome, FiLogOut } from 'react-icons/fi';
+import { FiTarget, FiLogOut, FiBarChart2 } from 'react-icons/fi';
 
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="relative z-50">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent pointer-events-none"></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
-          {/* Logo y nombre */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-200"></div>
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg p-2">
-                <FiTarget className="w-5 h-5 text-blue-400" />
-              </div>
+    <nav className="relative bg-zinc-950 border-b border-zinc-800 shadow-sm">
+      <div className="max-w-6xl mx-auto px-6 lg:px-16 xl:px-24">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/dashboard" className="flex items-center gap-3 group">
+            <div className="bg-zinc-800 rounded-xl p-2 shadow-sm group-hover:scale-105 transition-transform">
+              <FiTarget className="w-6 h-6 text-zinc-200 group-hover:text-blue-400 transition-colors" />
             </div>
-            <span className="text-lg font-medium text-white/90">Recoil</span>
+            <span className="text-xl font-bold text-zinc-100 tracking-tight group-hover:text-blue-400 transition-colors">Recoil</span>
           </Link>
 
-          {/* Navegación */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <Link
               href="/dashboard"
-              className={`relative group px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                pathname === '/dashboard'
-                  ? 'text-white'
-                  : 'text-white/70 hover:text-white'
+              className={`text-base font-medium transition-colors px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:ring-offset-2 focus:ring-offset-zinc-900 ${
+                pathname === "/dashboard"
+                  ? "text-zinc-100 bg-zinc-800"
+                  : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60"
               }`}
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-200"></div>
-              <div className="relative flex items-center gap-2">
-                <FiHome className="w-4 h-4" />
-                Dashboard
-              </div>
+              Dashboard
             </Link>
-
+            <Link
+              href="/dashboard/reportes"
+              className={`flex items-center gap-2 text-base font-medium transition-colors px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:ring-offset-2 focus:ring-offset-zinc-900 ${
+                pathname === "/dashboard/reportes"
+                  ? "text-zinc-100 bg-zinc-800"
+                  : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60"
+              }`}
+            >
+              <FiBarChart2 className="w-5 h-5" />
+              <span>Reportes</span>
+            </Link>
             <button
               onClick={() => {
                 // Aquí iría la lógica de logout
-                console.log('Logout clicked');
+                console.log("Logout clicked");
               }}
-              className="relative group px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white transition-colors"
+              className="text-base font-medium text-zinc-400 hover:text-red-400 transition-colors flex items-center gap-1.5 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400/30 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-200"></div>
-              <div className="relative flex items-center gap-2">
-                <FiLogOut className="w-4 h-4" />
-                Cerrar sesión
-              </div>
+              <FiLogOut className="w-5 h-5" />
+              <span>Cerrar sesión</span>
             </button>
           </div>
         </div>

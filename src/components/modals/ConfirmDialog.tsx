@@ -1,5 +1,6 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FiAlertTriangle } from 'react-icons/fi';
 
 export default function ConfirmDialog({
   isOpen,
@@ -16,7 +17,7 @@ export default function ConfirmDialog({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-zinc-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -28,30 +29,28 @@ export default function ConfirmDialog({
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-purple-500 rounded-xl blur opacity-30"></div>
-            <div className="relative bg-white/5 backdrop-blur-xl border border-white/20 rounded-lg p-6 shadow-2xl text-white">
-              <p className="text-center text-base mb-6 text-gray-200">{message}</p>
+            <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 shadow-xl">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center">
+                  <FiAlertTriangle className="w-5 h-5 text-zinc-300" />
+                </div>
+                <p className="text-zinc-400 text-sm leading-relaxed">{message}</p>
+              </div>
               <div className="flex justify-end gap-3">
                 <button
                   onClick={onClose}
-                  className="relative group"
+                  className="px-4 py-2 text-sm font-medium text-zinc-400 hover:text-zinc-300 transition-colors"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-0 group-hover:opacity-30 transition duration-200"></div>
-                  <div className="relative px-4 py-2 rounded-lg text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition">
-                    Cancelar
-                  </div>
+                  Cancelar
                 </button>
                 <button
                   onClick={() => {
                     onConfirm();
                     onClose();
                   }}
-                  className="relative group"
+                  className="px-4 py-2 text-sm font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-100 rounded-lg transition-colors"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-purple-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
-                  <div className="relative px-4 py-2 rounded-lg text-sm bg-white/10 border border-white/20 hover:bg-white/20 transition font-medium text-red-400">
-                    Eliminar
-                  </div>
+                  Eliminar
                 </button>
               </div>
             </div>
