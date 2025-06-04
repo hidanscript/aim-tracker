@@ -14,7 +14,6 @@ export default function NuevoRegistroModal({ isOpen, onClose, onAdd }: NuevoRegi
   const [exercise, setExercise] = useState("Bots x100");
   const [duration, setDuration] = useState("");
   const [hits, setHits] = useState("");
-  const [difficulty, setDifficulty] = useState(3);
   const [notes, setNotes] = useState("");
   const [dpi, setDpi] = useState("800");
   const [igs, setIgs] = useState("0.31");
@@ -30,7 +29,6 @@ export default function NuevoRegistroModal({ isOpen, onClose, onAdd }: NuevoRegi
         date: new Date().toISOString(),
         duration: exercise === "Bots x100" ? parseInt(duration) : undefined,
         hits: exercise === "Bots Hard" ? parseInt(hits) : undefined,
-        difficulty,
         notes: notes.trim() || undefined,
         dpi: parseInt(dpi),
         igs: parseFloat(igs)
@@ -46,7 +44,6 @@ export default function NuevoRegistroModal({ isOpen, onClose, onAdd }: NuevoRegi
 
       onAdd();
       onClose();
-      resetForm();
     } catch (error) {
       console.error("Error:", error);
     } finally {
@@ -58,7 +55,6 @@ export default function NuevoRegistroModal({ isOpen, onClose, onAdd }: NuevoRegi
     setExercise("Bots x100");
     setDuration("");
     setHits("");
-    setDifficulty(3);
     setNotes("");
     setDpi("800");
     setIgs("0.31");
@@ -142,29 +138,6 @@ export default function NuevoRegistroModal({ isOpen, onClose, onAdd }: NuevoRegi
                       />
                     </div>
                   )}
-
-                  <div>
-                    <label className="block text-sm font-medium text-zinc-400 mb-1">
-                      Dificultad
-                    </label>
-                    <div className="flex gap-2">
-                      {[1, 2, 3, 4, 5].map((level) => (
-                        <button
-                          key={level}
-                          type="button"
-                          onClick={() => setDifficulty(level)}
-                          disabled={isSaving}
-                          className={`flex-1 py-2 rounded-lg border transition-colors ${
-                            difficulty === level
-                              ? "bg-zinc-700 border-zinc-600 text-zinc-100"
-                              : "bg-zinc-800 border-zinc-700 text-zinc-400 hover:bg-zinc-700/50"
-                          } disabled:opacity-50 disabled:cursor-not-allowed`}
-                        >
-                          {level}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
 
                   <div className="space-y-2">
                     <label htmlFor="notes" className="block text-sm font-medium text-zinc-400">
